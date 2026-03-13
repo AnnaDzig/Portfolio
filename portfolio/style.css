@@ -1,0 +1,266 @@
+html {
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+ul[class],
+ol[class] {
+  padding: 0;
+}
+
+/* Убираем внешние отступы */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+ul[class],
+ol[class],
+li,
+figure,
+figcaption,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+@font-face {
+  font-family: "Merriweather";
+  src: url("./fonts/Merriweather-Bold.ttf");
+  font-weight: 700;
+}
+@font-face {
+  font-family: "Merriweather";
+  src: url("./fonts/Merriweather-Regular.ttf");
+  font-weight: 400;
+}
+@font-face {
+  font-family: "Inter", sans-serif;
+  src: url("./fonts/Inter-Bold.ttf");
+  font-weight: 700;
+}
+
+@font-face {
+  font-family: "Inter", sans-serif;
+  src: url("./fonts/Inter-Regular.ttf");
+  font-weight: 400;
+}
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  font-family: "Merriweather", serif;
+  font-style: normal;
+  font-size: 16px;
+  color: #ffff;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+  scroll-behavior: smooth;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+a {
+  color: #ffffff;
+}
+
+.container {
+  width: 1440px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.header-container {
+  height: 90px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.header-nav {
+  margin-top: 20px;
+  padding: 10px;
+}
+.nav-list {
+  display: flex;
+
+  margin-left: auto;
+}
+
+.logo {
+  background-size: contain;
+  background-repeat: no-repeat;
+  transition: 0.3s;
+  position: relative;
+  padding: 20px;
+}
+.logo:hover {
+  filter: invert(26%) sepia(15%) saturate(638%) hue-rotate(7deg) brightness(92%)
+    contrast(87%);
+}
+
+.nav-list {
+  list-style: none;
+}
+
+.nav-item {
+  margin-right: 30px;
+}
+
+.nav-item:last-child {
+  margin-right: 20px;
+}
+
+.nav-link {
+  font-family: "Inter", sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 20px;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.nav-list {
+}
+
+.header-container {
+  background: url("./assets/background.jpg");
+  background-repeat: no-repeat;
+  background-position: center 0;
+}
+.hero-container {
+  background-image: url("./assets/background.jpg");
+  height: 820px;
+  background-position: center -90px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+
+.hero-title {
+  font-family: Merriweather;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 3rem;
+  line-height: 120px;
+}
+.hero-block {
+  position: absolute;
+  top: 40%;
+  left: 20%;
+  transform: translate(-50%, -50%);
+  width: 500px;
+  padding: 30px;
+}
+
+.hero-text {
+  font-family: "Inter", sans-serif;
+  font-weight: 400;
+  font-size: 1.2rem;
+  line-height: 2.5rem;
+  margin-bottom: 25px;
+}
+
+.hero-button {
+  border: none;
+  outline: 0;
+  display: inline-block;
+  padding: 10px 25px;
+  color: black;
+  background-color: #bdae82;
+  text-align: center;
+  cursor: pointer;
+  width: 220px;
+}
+
+.hero-button:hover {
+  background-color: #bdae82;
+  color: white;
+}
+
+.skills {
+  background-color: #000000;
+  margin: 0 auto;
+}
+.section-title-container {
+  display: block;
+  text-align: center;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.section-title {
+  position: relative;
+  display: inline-block;
+  font-family: "Merriweather";
+  font-weight: 700;
+  font-size: 2.5rem;
+  line-height: 5rem;
+  text-align: center;
+  color: #bdae82;
+}
+
+.section-title:before,
+.section-title:after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  width: 200%;
+  height: 1px;
+  background: #bdae82;
+}
+
+.section-title:before {
+  right: 100%;
+  margin-right: 15px;
+}
+
+.section-title:after {
+  left: 100%;
+  margin-left: 15px;
+}
+
+.skills-section {
+  align-items: center;
+}
+
+.skills-container {
+  display: flex;
+  justify-content: space-between;
+  height: 482px;
+  margin-top: 60px;
+}
+
+.skills-item {
+  margin: auto;
+}
+
+.skills-text {
+  font-family: "Inter", sans-serif;
+  font-weight: 700;
+  font-size: 1.25rem;
+  line-height: 2.5rem;
+  text-align: center;
+  color: #ffffff;
+}
+
+.skills-description {
+  font-family: "Inter", sans-serif;
+  font-weight: 400;
+  font-size: 1.13rem;
+  line-height: 2.25rem;
+  text-align: center;
+  color: #ffffff;
+}
