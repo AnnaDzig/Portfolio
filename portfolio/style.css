@@ -957,7 +957,6 @@ body.light-theme .header--scrolled {
 }
 
 body.light-theme .footer__socials img,
-body.light-theme .skill-card img,
 body.light-theme .logo {
   filter: invert(1);
 }
