@@ -307,3 +307,106 @@ const revealObserver = new IntersectionObserver(
 revealElements.forEach((element) => {
   revealObserver.observe(element);
 });
+const videoWrapper = document.querySelector(".video__wrapper");
+const video = document.querySelector("#customVideo");
+const centerPlay = document.querySelector("#centerPlay");
+const playPauseBtn = document.querySelector("#playPauseBtn");
+const progressBar = document.querySelector("#progressBar");
+const muteBtn = document.querySelector("#muteBtn");
+const volumeBar = document.querySelector("#volumeBar");
+
+const icons = {
+  play: "./assets/icons/play.svg",
+  pause: "./assets/icons/pause.svg",
+  volume: "./assets/icons/volume.svg",
+  mute: "./assets/icons/mute.svg",
+};
+
+let previousVolume = 1;
+
+function setButtonIcon(button, iconPath) {
+  const img = button.querySelector("img");
+  if (img) {
+    img.src = iconPath;
+  }
+}
+
+function togglePlay() {
+  if (video.paused) {
+    video.play();
+  } else {
+    video.pause();
+  }
+}
+
+function updatePlayButton() {
+  const isPlaying = !video.paused;
+
+  videoWrapper.classList.toggle("is-playing", isPlaying);
+  setButtonIcon(playPauseBtn, isPlaying ? icons.pause : icons.play);
+}
+
+function updateProgress() {
+  if (!video.duration) return;
+
+  const progress = (video.currentTime / video.duration) * 100;
+
+  progressBar.value = progress;
+  progressBar.style.setProperty("--progress", `${progress}%`);
+}
+
+function changeProgress() {
+  if (!video.duration) return;
+
+  video.currentTime = (progressBar.value / 100) * video.duration;
+}
+
+function updateVolumeButton() {
+  const volumePercent = video.volume * 100;
+
+  volumeBar.value = video.volume;
+  volumeBar.style.setProperty("--volume", `${volumePercent}%`);
+
+  const isMuted = video.muted || video.volume === 0;
+  setButtonIcon(muteBtn, isMuted ? icons.mute : icons.volume);
+}
+
+function changeVolume() {
+  const newVolume = Number(volumeBar.value);
+
+  video.volume = newVolume;
+  video.muted = newVolume === 0;
+
+  if (newVolume > 0) {
+    previousVolume = newVolume;
+  }
+
+  updateVolumeButton();
+}
+
+function toggleMute() {
+  if (video.muted || video.volume === 0) {
+    video.muted = false;
+    video.volume = previousVolume || 1;
+  } else {
+    previousVolume = video.volume;
+    video.muted = true;
+  }
+
+  updateVolumeButton();
+}
+
+centerPlay.addEventListener("click", togglePlay);
+playPauseBtn.addEventListener("click", togglePlay);
+muteBtn.addEventListener("click", toggleMute);
+
+video.addEventListener("play", updatePlayButton);
+video.addEventListener("pause", updatePlayButton);
+video.addEventListener("timeupdate", updateProgress);
+video.addEventListener("loadedmetadata", updateProgress);
+
+progressBar.addEventListener("input", changeProgress);
+volumeBar.addEventListener("input", changeVolume);
+
+updatePlayButton();
+updateVolumeButton();

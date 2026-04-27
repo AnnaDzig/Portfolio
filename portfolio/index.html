@@ -191,16 +191,44 @@
             <span data-i18n="videoTitle">Video</span>
           </h2>
 
-          <div class="video__wrapper reveal">
-            <img
-              class="video__image"
-              src="./assets/images/video.jpg"
-              alt="Wedding video preview"
-            />
+          <div class="video__wrapper">
+            <video class="video__image" id="customVideo">
+              <source src="./assets/video/video.mp4" type="video/mp4" />
+            </video>
 
-            <button class="video__play" type="button" aria-label="Play video">
+            <button class="video__play" id="centerPlay" type="button">
               <span></span>
             </button>
+
+            <div class="video__controls">
+              <button class="video__control" id="playPauseBtn" type="button">
+                <img src="./assets/icons/play.svg" alt="Play" />
+              </button>
+
+              <input
+                class="video__progress video__range"
+                id="progressBar"
+                type="range"
+                min="0"
+                max="100"
+                value="0"
+                step="0.1"
+              />
+
+              <button class="video__control" id="muteBtn" type="button">
+                <img src="./assets/icons/volume.svg" alt="Volume" />
+              </button>
+
+              <input
+                class="video__volume video__range"
+                id="volumeBar"
+                type="range"
+                min="0"
+                max="1"
+                value="1"
+                step="0.01"
+              />
+            </div>
           </div>
         </div>
       </section>
